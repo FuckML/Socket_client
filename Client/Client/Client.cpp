@@ -34,6 +34,7 @@ void main() {
   }
 
   int rcvlen;
+  int sendlen;
   char message[BUFSIZ];
   while (1) {
     fgets(message, BUFSIZ, stdin);
@@ -41,8 +42,12 @@ void main() {
       break;
     }
 
-    send(clntSock, message, sizeof(message), 0);
-    recv(clntSock, message, BUFSIZ, 0);
+    sendlen = send(clntSock, message, sizeof(message), 0);
+    rcvlen = 0;
+    while (rcvlen < sendlen) {
+      rcvlen += recv(clntSock, &message[rcvlen], 1, 0);
+    }
+
     cout << "message from : " << message << "\n";
   }
   closesocket(clntSock);

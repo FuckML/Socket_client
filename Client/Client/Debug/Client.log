@@ -1,3 +1,2 @@
 ﻿  Client.cpp
-c:\users\seungmin\documents\github\socket_client\client\client\client.cpp(36): warning C4101: 'rcvlen' :참조되지 않은 지역 변수입니다.
   Client.vcxproj -> C:\Users\SeungMin\Documents\GitHub\Socket_client\Client\Debug\Client.exe
